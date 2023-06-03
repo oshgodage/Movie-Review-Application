@@ -1,0 +1,5 @@
+package devOsh.movies;
+
+public class MovieRepository {
+
+}

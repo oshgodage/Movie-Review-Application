@@ -1,0 +1,28 @@
+package devOsh.movies;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.env.Environment;
+
+import jakarta.annotation.PostConstruct;
+
+
+@SpringBootApplication
+
+public class MoviesApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MoviesApplication.class, args);
+		
+	}
+	@Autowired
+	private Environment environment;
+
+	@PostConstruct
+	public void printProperties() {
+	    System.out.println("Database Name: " + environment.getProperty("spring.data.mongodb.database"));
+	    System.out.println("MongoDB URI: " + environment.getProperty("spring.data.mongodb.uri"));
+	}
+
+}
